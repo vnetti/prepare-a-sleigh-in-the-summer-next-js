@@ -13,7 +13,7 @@ const First: FC = ({ }) => {
 
   const [md, setMd] = useState<MobileDetect | null>(null);
 
-  const { ref, permission } = useParallax((instance) => {
+  const { permission } = useParallax((instance) => {
     md?.mobile() && instance.limit(80, 20)
   });
 
@@ -23,7 +23,7 @@ const First: FC = ({ }) => {
 
   return (
     <section className={'container container_full'}>
-      <FirstBackground refLink={ref} />
+      <FirstBackground />
       <LogoPrimary />
       <FirstTextBlock />
       <StartLabel />

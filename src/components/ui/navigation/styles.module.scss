@@ -66,8 +66,12 @@
             height: $button-height-lg;
         }
 
-        svg {
+        .arrow {
             max-height: 100%;
+
+            &_prev {
+                transform: rotate(180deg);
+            }
         }
 
         span {

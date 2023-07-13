@@ -5,6 +5,7 @@
   font-size: 58px;
   font-weight: 700;
   text-transform: uppercase;
+  margin-top: 25px;
 
   @media screen and (max-width: 1485px) {
     font-size: 50px;
@@ -18,5 +19,6 @@
   }
   @include respond-below(lg) {
     font-size: 19px;
+    margin-top: 0;
   }
 }

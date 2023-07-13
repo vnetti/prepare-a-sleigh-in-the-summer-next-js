@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 body {
     font-family: "TT Commons", sans-serif;
     background-color: $black;
@@ -12,6 +24,7 @@ main {
 .container {
     position: relative;
     padding: $container-padding;
+    height: 100%;
 
     @include respond-below(xxl) {
         padding: $container-padding-xxl;

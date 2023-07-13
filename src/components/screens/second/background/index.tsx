@@ -1,4 +1,4 @@
-import Parallax from '@screens/second/parallax';
+import Parallax from 'components/containers/parallax';
 import Image from 'next/image';
 import bg from '@assets/images/screens/second/keep_fox_Santa_Claus_drinks_wine_with_one_hand.jpg';
 import sprayTop from '@assets/images/screens/second/spray-top.png';

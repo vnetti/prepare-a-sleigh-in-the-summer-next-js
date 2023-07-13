@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import React, { FC } from 'react';
 import LogoVector from '@components/ui/logo-vector';
 import Navigation from '@components/ui/navigation';
 import StartLabel from '@components/ui/start-label';
@@ -8,11 +8,12 @@ import SecondBackground from '@screens/second/background';
 import Heading from '@screens/second/heading';
 import SecondLabels from '@screens/second/labels';
 
+
 const Second: FC = ({}) => {
 
   return (
     <section className="container">
-      <SecondBackground/>
+      <SecondBackground />
       <Grid>
         <LogoVector />
         <StartLabel style={'second'} />

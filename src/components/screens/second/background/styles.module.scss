@@ -1,8 +1,16 @@
 .top {
   bottom: 25vh;
   right: -25vw;
+  @media screen and (aspect-ratio: 16/10) {
+    bottom: 40vh;
+    right: -40vw;
+  }
 }
 .bottom {
   top: 25vh;
   left: -10vw;
+  @media screen and (aspect-ratio: 16/10) {
+    top: 40vh;
+    left: -15vw;
+  }
 }
