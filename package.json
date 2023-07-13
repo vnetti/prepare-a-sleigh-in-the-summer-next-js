@@ -16,6 +16,8 @@
     "@types/react-dom": "18.2.7",
     "classnames": "^2.3.2",
     "mobile-detect": "^1.4.5",
+    "mobx": "^6.9.1",
+    "mobx-react-lite": "^4.0.3",
     "next": "13.4.9",
     "parallax-js": "^3.1.0",
     "react": "18.2.0",
@@ -23,6 +25,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/parallax-js": "^3.1.0",
     "concurrently": "^8.2.0",
     "prettier": "^3.0.0",
     "sass": "^1.63.6"

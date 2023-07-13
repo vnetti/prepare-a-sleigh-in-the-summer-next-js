@@ -16,19 +16,19 @@
 
 
     position: absolute;
-    top: calc($container-height - $container-padding - $button-height * 2 - $gap);
+    bottom: $container-padding;
     right: $container-padding;
 
     @include respond-below(xxl) {
-        top: calc($container-height - $container-padding-xxl - $button-height-xxl * 2 - $gap-xxl);
+        bottom: $container-padding-xxl;
         right: $container-padding-xxl;
     }
     @include respond-below(xl) {
-        top: calc($container-height - $container-padding-xl - $button-height-xl * 2 - $gap-xl);
+        bottom: $container-padding-xl;
         right: $container-padding-xl;
     }
     @include respond-below(lg) {
-        top: calc($container-height - $container-padding-lg - $button-height-lg * 2 - $gap-lg);
+        bottom: $container-padding-lg;
         right: $container-padding-lg;
     }
 

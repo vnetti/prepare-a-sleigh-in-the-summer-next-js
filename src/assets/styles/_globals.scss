@@ -6,12 +6,12 @@ body {
 
 main {
     min-height: 100vh;
+    overflow: clip;
 }
 
 .container {
     position: relative;
     padding: $container-padding;
-    overflow: hidden;
 
     @include respond-below(xxl) {
         padding: $container-padding-xxl;
@@ -21,5 +21,9 @@ main {
     }
     @include respond-below(lg) {
         padding: $container-padding-lg;
+    }
+
+    &_full {
+        min-height: 100vh;
     }
 }

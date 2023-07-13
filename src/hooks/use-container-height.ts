@@ -12,7 +12,6 @@ const useContainerHeight = () => {
       if (height === 0) callback();
       container.style.setProperty('--container-height', `${height}px`);
       window.addEventListener('resize', callback);
-      console.log(height);
       return () => window.removeEventListener('resize', callback);
     }
   }, [ref, height]);

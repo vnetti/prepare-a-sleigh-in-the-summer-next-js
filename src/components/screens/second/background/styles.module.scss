@@ -1,0 +1,15 @@
+.spray {
+    position: absolute;
+    width: 100%;
+    height: auto;
+
+    &_top {
+        bottom: 25vh;
+        right: -25vw;
+    }
+
+    &_bottom {
+        top: 25vh;
+        left: -10vw;
+    }
+}

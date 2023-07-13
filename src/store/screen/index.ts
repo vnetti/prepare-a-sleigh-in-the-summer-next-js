@@ -1,15 +1,19 @@
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from 'mobx';
 
 class Screen {
-  screen = 0
+  currentScreen: number;
 
   constructor() {
-    makeAutoObservable(this)
+    this.currentScreen = 0;
+    makeAutoObservable(this);
   }
 
-  setScreen(dir: string) {
-    this.screen = dir === 'down' ? this.screen + 1 : this.screen - 1
+  setScreen(dir: 'next' | 'prev') {
+    this.currentScreen = dir === 'next' ? this.currentScreen + 1 : this.currentScreen - 1;
+  }
+  closeDisclaimer() {
+    this.currentScreen = 1;
   }
 }
 
-export default new Screen()
+export default new Screen();
