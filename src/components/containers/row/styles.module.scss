@@ -1,0 +1,69 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.row {
+    display: flex;
+
+    &_padding {
+        &-sm  {
+            .item {
+                padding: 5px;
+            }
+        }
+        &-md  {
+            .item {
+                padding: 10px;
+            }
+        }
+        &-lg  {
+            .item {
+                padding: 15px;
+            }
+        }
+        &-xl  {
+            .item {
+                padding: 20px;
+            }
+        }
+        &-auto {
+            .item {
+                padding: 15px;
+
+                @include respond-below(xxl) {
+                    padding: 10px;
+                }
+                @include respond-below(lg) {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+    &_gap {
+        &-sm  {
+            gap: 0 5px;
+        }
+        &-md  {
+            gap: 0 10px;
+        }
+        &-lg  {
+            gap: 0 15px;
+        }
+        &-xl  {
+            gap: 0 20px;
+        }
+        &-auto {
+            gap: 0 30px;
+
+            @media screen and (max-width: 1721px) {
+                gap: 0 20px;
+            }
+
+            @include respond-below(xxl) {
+                gap: 0 15px;
+            }
+            @include respond-below(lg) {
+                gap: 0 15px;
+            }
+        }
+    }
+}

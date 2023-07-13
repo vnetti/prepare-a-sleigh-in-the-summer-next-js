@@ -1,0 +1,92 @@
+@mixin hover-active($property, $color, $duration, $timing-function: ease, $hover-color: $color, $active-color: $color) {
+    transition: $property $duration $timing-function;
+
+    &:hover {
+        @if ($hover-color == $color) {
+            #{$property}: darken($color, 10);
+        } @else {
+            #{$property}: $hover-color;
+        }
+
+
+    }
+
+    &:active {
+        @if ($active-color == $color) {
+            #{$property}: lighten($color, 10);
+        } @else {
+            #{$property}: $active-color;
+        }
+    }
+}
+
+//
+// MEDIA QUERIES
+// _______________________________________________
+
+@mixin respond-above($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @media screen and (min-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin respond-below($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        @media screen and (max-width: $breakpoint-value - 1) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin respond-between($lower, $upper) {
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+        $lower-breakpoint: map-get($breakpoints, $lower);
+        $upper-breakpoint: map-get($breakpoints, $upper);
+
+        @media screen and (min-width: $lower-breakpoint) and (max-width: $upper-breakpoint - 1) {
+            @content
+        }
+    } @else {
+        @if (map-has-key($breakpoints, $lower) == false) {
+            @warn 'Your lower breakpoint was invalid: #{$lower}.';
+        }
+        @if (map-has-key($breakpoints, $upper) == false) {
+            @warn 'Your upper breakpoint was invalid: #{$upper}.';
+        }
+    }
+}
+
+
+//
+// FONT SIZE
+// _______________________________________________
+
+@mixin font-size($value: 1) {
+    @if($value > 0) {
+        font-size: 1rem * $value;
+
+        @include respond-below(lg) {
+            font-size: .875rem * $value;
+        }
+
+        @include respond-below(sm) {
+            font-size: .75rem * $value;
+        }
+
+    } @else {
+        @warn 'Invalid value for font-size: #{$value}. The value should have been more or equal 1.';
+    }
+
+}
+
+

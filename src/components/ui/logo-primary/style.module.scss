@@ -1,0 +1,21 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.logo {
+    max-width: 280px;
+
+    @include respond-below(xxl) {
+        max-width: 210px;
+    }
+    @include respond-below(xl) {
+        max-width: 180px;
+    }
+    @include respond-below(lg) {
+        max-width: 110px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

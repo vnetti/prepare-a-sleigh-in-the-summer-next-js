@@ -1,0 +1,22 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/variables';
+
+.heading {
+  font-size: 58px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 1485px) {
+    font-size: 50px;
+  }
+
+  @include respond-below(xxl) {
+    font-size: 43px;
+  }
+  @include respond-below(xl) {
+    font-size: 33px;
+  }
+  @include respond-below(lg) {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,41 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.block {
+    position: absolute;
+    bottom: 29%;
+
+    h1 {
+        font-size: 70px;
+        font-weight: 700;
+        line-height: 75px;
+
+        @include respond-below(xxl) {
+            font-size: 55px;
+            line-height: 57px;
+        }
+        @include respond-below(lg) {
+            font-size: 32px;
+            line-height: 33px;
+        }
+    }
+
+    p {
+        margin-top: 31px;
+        font-size: 39px;
+        font-weight: 300;
+
+        @include respond-below(xxl) {
+            margin-top: 23px;
+            font-size: 30px;
+        }
+        @include respond-below(xl) {
+            margin-top: 19px;
+            font-size: 25px;
+        }
+        @include respond-below(lg) {
+            margin-top: 13px;
+            font-size: 17.5px;
+        }
+    }
+}

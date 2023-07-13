@@ -1,0 +1,25 @@
+body {
+    font-family: "TT Commons", sans-serif;
+    background-color: $black;
+    color: $white;
+}
+
+main {
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    padding: $container-padding;
+    overflow: hidden;
+
+    @include respond-below(xxl) {
+        padding: $container-padding-xxl;
+    }
+    @include respond-below(xl) {
+        padding: $container-padding-xl;
+    }
+    @include respond-below(lg) {
+        padding: $container-padding-lg;
+    }
+}

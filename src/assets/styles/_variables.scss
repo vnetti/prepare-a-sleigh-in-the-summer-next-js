@@ -1,0 +1,26 @@
+$white: #fff;
+$white-transparent: rgba($white, 4%);
+$red: #ff4d46;
+$red-transparent: rgba($red, 4%);
+$orange: #fe9c2c;
+$orange-transparent: rgba($orange, 4%);
+$pink: #ff638e;
+$black: #000;
+
+$container-padding: 100px;
+$container-padding-xxl: 75px;
+$container-padding-xl: 70px;
+$container-padding-lg: 50px;
+
+//
+// BREAKPOINTS
+// _______________________________________________
+
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);

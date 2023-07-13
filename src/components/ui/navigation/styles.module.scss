@@ -1,0 +1,100 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.navigation {
+    $button-height: 188px;
+    $button-height-xxl: 140px;
+    $button-height-xl: 120px;
+    $button-height-lg: 80px;
+
+    $gap: 80px;
+    $gap-xxl: 50px;
+    $gap-xl: 40px;
+    $gap-lg: 30px;
+
+    $container-height: var(--container-height);
+
+
+    position: absolute;
+    top: calc($container-height - $container-padding - $button-height * 2 - $gap);
+    right: $container-padding;
+
+    @include respond-below(xxl) {
+        top: calc($container-height - $container-padding-xxl - $button-height-xxl * 2 - $gap-xxl);
+        right: $container-padding-xxl;
+    }
+    @include respond-below(xl) {
+        top: calc($container-height - $container-padding-xl - $button-height-xl * 2 - $gap-xl);
+        right: $container-padding-xl;
+    }
+    @include respond-below(lg) {
+        top: calc($container-height - $container-padding-lg - $button-height-lg * 2 - $gap-lg);
+        right: $container-padding-lg;
+    }
+
+
+    display: flex;
+    flex-direction: column;
+    row-gap: $gap;
+
+    @include respond-below(xxl) {
+        row-gap: $gap-xxl;
+    }
+    @include respond-below(xl) {
+        row-gap: $gap-xl;
+    }
+    @include respond-below(lg) {
+        row-gap: $gap-lg;
+    }
+
+    .button {
+        background: none;
+        border: none;
+        color: inherit;
+        font-family: inherit;
+
+        display: flex;
+        height: $button-height;
+
+        @include respond-below(xxl) {
+            height: $button-height-xxl;
+        }
+        @include respond-below(xl) {
+            height: $button-height-xl;
+        }
+        @include respond-below(lg) {
+            height: $button-height-lg;
+        }
+
+        svg {
+            max-height: 100%;
+        }
+
+        span {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+
+            font-size: 30px;
+            font-weight: 300;
+            line-height: 75px;
+
+            @include respond-below(xxl) {
+                font-size: 22px;
+                line-height: 55px;
+            }
+            @include respond-below(xl) {
+                font-size: 20px;
+                line-height: 40px;
+            }
+            @include respond-below(lg) {
+                font-size: 13px;
+                line-height: 25px;
+            }
+
+        }
+
+        &_prev {
+            align-items: flex-end;
+        }
+    }
+}

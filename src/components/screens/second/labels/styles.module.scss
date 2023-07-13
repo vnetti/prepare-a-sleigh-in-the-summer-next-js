@@ -1,0 +1,102 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+.labels {
+  position: absolute;
+  bottom: $container-padding;
+  right: $container-padding + 120px;
+
+  @include respond-below(xxl) {
+    bottom: $container-padding-xxl;
+    right: $container-padding-xxl + 100px;
+  }
+  @include respond-below(xl) {
+    bottom: $container-padding-xl;
+    right: $container-padding-xl + 80px;
+  }
+  @include respond-below(lg) {
+    bottom: $container-padding-lg;
+    right: $container-padding-lg + 60px;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $red;
+    user-select: none;
+
+    font-size: 18px;
+    @media screen and (max-width: 1721px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 1641px) and (min-width: 1400px) {
+      width: min-content;
+    }
+    @include respond-below(xxl) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 1285px) and (min-width: 992px) {
+      width: min-content;
+    }
+    @include respond-below(lg) {
+      font-size: 9px;
+    }
+    @media screen and (max-width: 790px) {
+      width: min-content;
+    }
+
+    &::after {
+      content: attr(data-content);
+      display: block;
+
+      margin-left: 15px;
+      @media screen and (max-width: 1721px) and (min-width: 1642px){
+        margin-left: 10px;
+      }
+      @include respond-below(xxl) {
+        margin-left: 8px;
+      }
+      @include respond-below(lg) {
+        margin-left: 5px;
+      }
+    }
+
+    .wine {
+      max-width: 16px;
+      @media screen and (max-width: 1525px) and (min-width: 1400px) {
+        min-width: 14px;
+      }
+      @include respond-below(xxl) {
+        max-width: 12px;
+      }
+      @include respond-below(lg) {
+        max-width: 7.5px;
+      }
+    }
+    .dumpling {
+      max-width: 32px;
+      @media screen and (max-width: 1525px) and (min-width: 1401px) {
+        min-width: 28px;
+      }
+      @include respond-below(xxl) {
+        max-width: 24px;
+      }
+      @include respond-below(lg) {
+        max-width: 15px;
+      }
+    }
+    .dance {
+      max-width: 44px;
+      @media screen and (max-width: 1525px) and (min-width: 1401px) {
+        min-width: 38px;
+      }
+      @include respond-below(xxl) {
+        max-width: 32px;
+      }
+      @include respond-below(lg) {
+        max-width: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import "@assets/styles/variables";
+@import "@assets/styles/mixins";
+
+.startLabel {
+    padding: 11px 29px;
+    width: fit-content;
+    border: 1px solid $white;
+    border-radius: 10px;
+
+    @include respond-below(xxl) {
+        padding: 8.25px 21.75px;
+        border-radius: 7.5px;
+    }
+    @include respond-below(xl) {
+        padding: 7px 17px;
+        border-radius: 6px;
+    }
+    @include respond-below(lg) {
+        border-radius: 4.4px;
+        padding: 4.85px 12.75px;
+        border-width: .75px;
+    }
+
+    p {
+        font-size: 25px;
+
+        @include respond-below(xxl) {
+            font-size: 18.75px;
+        }
+        @include respond-below(xl) {
+            font-size: 15px;
+        }
+        @include respond-below(lg) {
+            font-size: 11px;
+        }
+    }
+    
+    &_first {
+        position: absolute;
+        bottom: $container-padding;
+
+        @include respond-below(xxl) {
+            bottom: $container-padding-xxl;
+        }
+        @include respond-below(xl) {
+            bottom: $container-padding-xl;
+        }
+        @include respond-below(lg) {
+            bottom: $container-padding-lg;
+        }
+    }
+
+    &_second {
+        color: $red;
+        border-color: $red;
+        background-color: $red-transparent;
+    }
+}
