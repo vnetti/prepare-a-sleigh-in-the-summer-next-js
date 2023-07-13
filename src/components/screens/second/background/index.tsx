@@ -17,8 +17,8 @@ const SecondBackground = () => {
         quality={100}
         placeholder={'blur'}
       />
-      <Image className={cn(styles.spray, styles.spray_top)} src={sprayTop} alt=""/>
-      <Image className={cn(styles.spray, styles.spray_bottom)} src={sprayBottom} alt=""/>
+      <Image className={cn('parallax_item', styles.top)} src={sprayTop} alt=""/>
+      <Image className={cn('parallax_item', styles.bottom)} src={sprayBottom} alt=""/>
     </Parallax>
   );
 };
