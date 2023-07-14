@@ -46,3 +46,15 @@ main {
     width: 100%;
     height: auto;
 }
+
+.os-theme-light {
+
+    &.os-scrollbar-vertical {
+        --os-size: 9px;
+        --os-track-border-radius: 10px;
+        --os-track-bg: #414141;
+        --os-handle-max-size: 62px;
+        --os-handle-bg: #fff;
+        --os-track-bg-hover: #414141;
+    }
+}

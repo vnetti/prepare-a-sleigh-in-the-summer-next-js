@@ -1,8 +1,14 @@
 import styles from './styles.module.scss';
+import 'overlayscrollbars/overlayscrollbars.css'
+import useScrollbar from "@hooks/use-scrollbar";
+import useResize from "@hooks/use-resize";
 
 const SecondTextBlock = () => {
+
+  const ref = useScrollbar(useResize(992))
+
   return (
-    <div className={styles.block}>
+    <div className={styles.block} ref={ref}>
         <p>
           С 28 декабря мы ждем тебя не просто с открытыми объятиями, но&nbsp;и&nbsp;с&nbsp;открытыми
           бутылками вина (безлимитным, поэтому стоит подготовить печень)! Мы знаем, что Новый Год –
