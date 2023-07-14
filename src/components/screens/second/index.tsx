@@ -8,9 +8,7 @@ import SecondBackground from '@screens/second/background';
 import Heading from '@screens/second/heading';
 import SecondLabels from '@screens/second/labels';
 
-
 const Second: FC = ({}) => {
-
   return (
     <section className="container">
       <SecondBackground />

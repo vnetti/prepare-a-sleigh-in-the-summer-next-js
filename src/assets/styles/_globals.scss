@@ -22,13 +22,15 @@ body {
 
 main {
     min-height: 100vh;
-    overflow: clip;
+    //overflow: clip;
+    //overflow: hidden;
 }
 
 .container {
     position: relative;
     padding: $container-padding;
-    height: 100%;
+
+
 
     @include respond-below(xxl) {
         padding: $container-padding-xxl;
@@ -41,7 +43,7 @@ main {
     }
 
     &_full {
-        min-height: 100vh;
+        height: 100%;
     }
 }
 

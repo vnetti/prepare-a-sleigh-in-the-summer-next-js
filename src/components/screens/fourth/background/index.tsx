@@ -7,7 +7,9 @@ import cn from 'classnames';
 
 const FourthBackground = () => {
   return (
-    <Parallax>
+    <Parallax attributes={[
+      {forChild: 1, attributes: {"data-depth": .2}},
+    ]}>
       <Image
         src={bg}
         alt="СУЧКА, ТЫ СОЗРЕЛА?"

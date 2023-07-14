@@ -4,7 +4,7 @@
 .labels {
   position: absolute;
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
 
   display: flex;
   max-width: 35vw;
@@ -24,7 +24,6 @@
     left: 53vw;
     max-width: 35vw;
     gap: 0 1vw;
-    transform: translateY(-100%);
   }
   @media screen and (min-width: 1547px) {
     left: 45vw;
