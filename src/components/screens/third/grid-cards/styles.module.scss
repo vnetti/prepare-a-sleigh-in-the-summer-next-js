@@ -1,0 +1,29 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.grid {
+    display: grid;
+    padding-right: 90px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0 30px;
+
+    @media screen and (max-width: 1651px) {
+        gap: 0 20px;
+    }
+
+    @include respond-below(xxl) {
+        padding-right: 70px;
+    }
+    @include respond-below(xl) {
+        padding-right: 50px;
+        gap: 0 15px;
+    }
+    @include respond-below(lg) {
+        padding-right: 50px;
+        gap: 0 15px;
+    }
+
+    .item {
+
+    }
+}

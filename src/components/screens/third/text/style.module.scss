@@ -1,0 +1,14 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.text {
+  margin-top: 5px;
+  font-size: 22px;
+  @include respond-below(xxl) {
+    font-size: 18px;
+  }
+  @include respond-below(lg) {
+    margin-top: 0;
+    font-size: 10px;
+  }
+}

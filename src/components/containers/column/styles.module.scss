@@ -1,0 +1,17 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.item {
+  &:first-child {
+    flex: 0 0 auto;
+  }
+  &:nth-child(2) {
+    flex: 1 0 auto;
+  }
+  &:last-child {
+    flex: 0 0 auto;
+  }
+}
