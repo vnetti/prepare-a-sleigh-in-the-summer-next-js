@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import LogoVector from '@components/ui/logo-vector';
 import Navigation from '@components/ui/navigation';
 import StartLabel from '@components/ui/start-label';

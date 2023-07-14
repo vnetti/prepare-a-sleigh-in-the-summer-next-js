@@ -1,0 +1,73 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 712px;
+
+    .item {
+        &:nth-child(2) {
+            padding-top: 50px;
+
+            @include respond-below(xxl) {
+                padding-top: 30px;
+            }
+            @include respond-below(lg) {
+                padding-top: 0;
+            }
+        }
+        &:nth-child(3) {
+            padding-top: 50px;
+
+            @include respond-below(xxl) {
+                padding-top: 30px;
+            }
+            @include respond-below(lg) {
+                padding-top: 0;
+            }
+
+        }
+        &:last-child {
+            padding-top: 30px;
+
+            @include respond-below(xxl) {
+                padding-top: 20px;
+            }
+            @include respond-below(xl) {
+                padding-top: 15px;
+            }
+            @include respond-below(lg) {
+                padding-top: 10px;
+            }
+        }
+    }
+    @include respond-below(xxl) {
+        max-width: 534px;
+    }
+    @include respond-below(xl) {
+        max-width: 470px;
+    }
+    @include respond-below(lg) {
+        grid-template-columns: max-content max-content 1fr;
+        max-width: none;
+
+        .item {
+            align-self: center;
+
+            &:nth-child(2) {
+                margin-left: 30px;
+            }
+            &:nth-child(3) {
+                width: 364px;
+                justify-self: end;
+            }
+            &:last-child {
+                max-width: 282px;
+                grid-column: 1/3;
+            }
+        }
+    }
+
+}

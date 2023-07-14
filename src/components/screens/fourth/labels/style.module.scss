@@ -1,0 +1,76 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+.labels {
+  position: absolute;
+  left: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  max-width: 35vw;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0 3vw;
+
+  @include respond-above(lg) {
+    left: 50vw;
+    max-width: 32vw;
+  }
+  @include respond-above(xl) {
+    left: 48vw;
+    max-width: 35vw;
+  }
+  @include respond-above(xxl) {
+    left: 53vw;
+    max-width: 35vw;
+    gap: 0 1vw;
+    transform: translateY(-100%);
+  }
+  @media screen and (min-width: 1547px) {
+    left: 45vw;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+
+    @include respond-above(lg) {
+      gap: 0 10px;
+    }
+    @include respond-above(xxl) {
+      gap: 0 15px;
+    }
+
+    .image {
+      max-width: 15px;
+
+      @include respond-above(lg) {
+        max-width: 18px;
+      }
+      @include respond-above(xl) {
+        max-width: 22px;
+      }
+      @include respond-above(xxl) {
+        max-width: 30px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    &__text {
+      font-size: 9px;
+
+      @include respond-above(lg) {
+        font-size: 11px;
+      }
+      @include respond-above(xl) {
+        font-size: 14px;
+      }
+      @include respond-above(xxl) {
+        font-size: 18px;
+      }
+    }
+  }
+}

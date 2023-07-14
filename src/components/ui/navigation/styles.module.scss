@@ -12,9 +12,6 @@
     $gap-xl: 40px;
     $gap-lg: 30px;
 
-    $container-height: var(--container-height);
-
-
     position: absolute;
     bottom: $container-padding;
     right: $container-padding;
@@ -69,6 +66,7 @@
 
         .arrow {
             max-height: 100%;
+            width: auto;
 
             &_prev {
                 transform: rotate(180deg);

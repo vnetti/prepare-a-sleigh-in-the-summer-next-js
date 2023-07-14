@@ -4,6 +4,7 @@ import Second from "@screens/second";
 import screen from "@store/screen";
 import {observer} from "mobx-react-lite";
 import Third from "@screens/third";
+import Fourth from "@screens/fourth";
 
 const App = observer(() => {
 
@@ -14,6 +15,8 @@ const App = observer(() => {
       return <Second/>
     case 3:
       return <Third/>
+    case 4:
+      return <Fourth/>
     default:
       return <Disclaimer/>
   }

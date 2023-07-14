@@ -3,17 +3,22 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { ICard } from '@screens/third';
 
-const Card: FC<ICard> = (props) => {
+type propsType = {
+  card: ICard
+}
+
+const Card: FC<propsType> = ({card}) => {
+  const {when, heading, labels, content} = card
   return (
     <article className={classes.card}>
       <div className={classes.heading}>
-        <span>{props.when}</span>
-        <h3>{props.heading}</h3>
+        <span>{when}</span>
+        <h3>{heading}</h3>
       </div>
-      <p className={classes.content}>{props.content}</p>
+      <p className={classes.content}>{content}</p>
       <div className={classes.labels}>
-        {props.labels.map((label) => (
-          <p className={classes.label}>
+        {labels.map((label) => (
+          <p key={label.id} className={classes.label}>
             <span className={classes.image}>
               <Image src={label.img} alt={label.text} />
             </span>
