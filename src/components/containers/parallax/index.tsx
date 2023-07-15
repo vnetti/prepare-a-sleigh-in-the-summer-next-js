@@ -39,23 +39,6 @@ const Parallax: FC<PropsWithChildren<propsType>> = ({ children, options, attribu
   const [md, setMd] = useState<MobileDetect | null>(null);
 
   useEffect(() => {
-    setMd(new MobileDetect(navigator.userAgent));
-    if (ref.current) {
-      setParallaxInstance(
-        new ParallaxJs(ref.current, { invertX: false, invertY: false, ...options }),
-      );
-    }
-  }, []);
-
-  if (parallaxInstance) {
-    if (md?.mobile()) {
-      parallaxInstance.limit(50, 50);
-    } else {
-      parallaxInstance.limit(false, false);
-    }
-  }
-
-  useEffect(() => {
     const getAttributes = (index: number) => {
       if (attributes) {
         const childAttributes = attributes
@@ -79,6 +62,23 @@ const Parallax: FC<PropsWithChildren<propsType>> = ({ children, options, attribu
       });
     }
   }, []);
+
+  useEffect(() => {
+    setMd(new MobileDetect(navigator.userAgent));
+    if (ref.current) {
+      setParallaxInstance(
+        new ParallaxJs(ref.current, { invertX: false, invertY: false, ...options }),
+      );
+    }
+  }, []);
+
+  if (parallaxInstance) {
+    if (md?.mobile()) {
+      parallaxInstance.limit(50, 50);
+    } else {
+      parallaxInstance.limit(false, false);
+    }
+  }
 
   return (
     <Portal isBackground>
