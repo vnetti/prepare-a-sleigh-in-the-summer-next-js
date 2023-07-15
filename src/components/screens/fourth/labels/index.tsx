@@ -20,7 +20,7 @@ const Labels = () => {
   return (
     <div className={classes.labels}>
       {labels.map((label) => (
-        <p className={classes.label}>
+        <p key={label.id} className={classes.label}>
           <span className={classes.image}>
             <Image src={label.img} alt={label.text} />
           </span>
