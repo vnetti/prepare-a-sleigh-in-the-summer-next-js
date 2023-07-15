@@ -2,13 +2,19 @@
 @import "assets/styles/mixins";
 
 .heading {
+  margin-top: 15px;
+  margin-bottom: -15px;
   font-size: 58px;
   font-weight: 700;
 
   @include respond-below(xxl) {
+    margin-top: 10px;
+    margin-bottom: -10px;
     font-size: 45px;
   }
   @include respond-below(lg) {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 20px;
   }
 }
