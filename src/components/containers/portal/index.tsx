@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren, ReactNode, useEffect, useLayoutEffect, useState} from "react";
+import {FC, PropsWithChildren, ReactNode, useEffect, useState} from "react";
 import ReactDOM from 'react-dom';
 
 type propsType = {
@@ -8,12 +8,9 @@ type propsType = {
 
 const Portal: FC<PropsWithChildren<propsType>> = ({children, isBackground}) => {
 
-  const [container, setContainer] = useState<HTMLElement>()
-
-
+  const [container] = useState(() => document.createElement('div'))
 
   useEffect(() => {
-    if (container) {
       if (isBackground) {
         container.style.zIndex = '-1'
         container.style.overflow = 'hidden'
@@ -28,12 +25,9 @@ const Portal: FC<PropsWithChildren<propsType>> = ({children, isBackground}) => {
       return () => {
         document.body.removeChild(container)
       };
-    } else setContainer( document.createElement('div'))
-  }, [container]);
+  }, []);
 
-  if (container) {
-    return ReactDOM.createPortal(children, container)
-  }
+  return ReactDOM.createPortal(children, container)
 }
 
 export default Portal;

@@ -1,24 +1,31 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
 .tangerine {
   width: auto;
   height: auto;
 
   &_right {
-    top: -15%;
-    left: 78%;
+    top: -17%;
+    right: -25%;
+    width: 40%;
   }
   &_bottom {
-    top: 78%;
-    right: 30%;
+    top: 73%;
+    right: 25%;
+    width: 32%;
   }
 
   &_splice {
     &_top {
-      right: 10%;
+      right: 7%;
       top: 0;
+      width: 10%;
     }
     &_bottom {
       right: 5%;
       top: 72%;
+      width: 18%;
     }
   }
 }
