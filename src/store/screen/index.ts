@@ -4,7 +4,7 @@ class Screen {
   currentScreen: number;
 
   constructor() {
-    this.currentScreen = 0;
+    this.currentScreen = 5;
     makeAutoObservable(this);
   }
 

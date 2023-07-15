@@ -1,0 +1,24 @@
+.tangerine {
+  width: auto;
+  height: auto;
+
+  &_right {
+    top: -15%;
+    left: 78%;
+  }
+  &_bottom {
+    top: 78%;
+    right: 30%;
+  }
+
+  &_splice {
+    &_top {
+      right: 10%;
+      top: 0;
+    }
+    &_bottom {
+      right: 5%;
+      top: 72%;
+    }
+  }
+}

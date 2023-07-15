@@ -1,0 +1,33 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+.text {
+  p {
+    margin-top: 25px;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 32px;
+    text-align: justify;
+  }
+  @include respond-below(xxl) {
+    p {
+      margin-top: 15px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  @include respond-below(xl) {
+    p {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  @include respond-below(lg) {
+    p {
+      margin-top: 25px;
+      font-size: 10px;
+      line-height: 15px;
+    }
+  }
+}
