@@ -9,6 +9,7 @@ const FourthBackground = () => {
   return (
     <Parallax attributes={[
       {forChild: 1, attributes: {"data-depth": .2}},
+      {forChild: 2, attributes: {"data-depth": .5}},
     ]}>
       <Image
         src={bg}

@@ -12,7 +12,7 @@
     $gap-xl: 40px;
     $gap-lg: 30px;
 
-    position: absolute;
+    position: fixed;
     bottom: $container-padding;
     right: $container-padding;
 
@@ -65,8 +65,18 @@
         }
 
         .arrow {
-            max-height: 100%;
+            height: 188px;
             width: auto;
+
+            @include respond-below(xxl) {
+                height: 141px;
+            }
+            @include respond-below(xl) {
+                height: 110px;
+            }
+            @include respond-below(lg) {
+                height: 83px;
+            }
 
             &_prev {
                 transform: rotate(180deg);

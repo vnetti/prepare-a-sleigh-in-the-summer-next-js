@@ -10,8 +10,8 @@ const SecondBackground = () => {
   return (
     <Parallax attributes={[
       {forChild: 1, attributes: {"data-depth": .2}},
-      {forChild: 2, attributes: {"data-depth": 2}},
-      {forChild: 3, attributes: {"data-depth": 1}}
+      {forChild: 2, attributes: {"data-depth": .5}},
+      {forChild: 3, attributes: {"data-depth": .7}}
     ]}>
       <Image
         src={bg}

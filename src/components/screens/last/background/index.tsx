@@ -13,8 +13,8 @@ const LastBackground = () => {
   return (
     <Parallax attributes={[
       {forChild: 1, attributes: {"data-depth": .2}},
-      {forChild: 2, attributes: {"data-depth": .7}},
-      {forChild: 3, attributes: {"data-depth": 1}},
+      {forChild: 2, attributes: {"data-depth": .5}},
+      {forChild: 3, attributes: {"data-depth": .7}},
       {forChild: 4, attributes: {"data-depth": .4}},
       {forChild: 5, attributes: {"data-depth": .3}},
     ]}>
