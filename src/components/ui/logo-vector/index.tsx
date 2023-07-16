@@ -5,7 +5,7 @@ import Image from "next/image";
 const LogoVector = () => {
   return (
     <div className={styles.logo}>
-      <Image src={logo} alt="Готовь сани летом | новогоднее грузинское безумие"/>
+      <Image priority src={logo} alt="Готовь сани летом | новогоднее грузинское безумие"/>
     </div>
   )
 }

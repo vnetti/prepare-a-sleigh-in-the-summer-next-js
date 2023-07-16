@@ -1,20 +1,16 @@
 import {useEffect, useState} from "react";
-import MobileDetect from "mobile-detect";
+import screenState from "@store/screen";
 
 const useMobileDetect = () => {
 
-  const [md, setMd] = useState<MobileDetect | undefined>(undefined);
-
-  const [detected, setDetected] = useState(false);
+  const [isDetected, setDetected] = useState(false);
 
   useEffect(() => {
-    setMd(new MobileDetect(navigator.userAgent));
+    screenState.setIsMobile()
     setDetected(true)
   }, [])
 
-  const isMobile = !!md?.mobile()
-
-  return {isDetected: detected, isMobile}
+  return isDetected
 }
 
 export default useMobileDetect

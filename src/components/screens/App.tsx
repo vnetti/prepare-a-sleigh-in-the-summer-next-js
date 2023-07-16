@@ -7,30 +7,18 @@ import Third from "@screens/third";
 import Fourth from "@screens/fourth";
 import Last from "@screens/last";
 import useMobileDetect from "@hooks/use-mobile-detect";
-import {useEffect, useState} from "react";
-import usePermission from "@hooks/use-permission";
+import Permission from "@screens/permission";
+import useOrientationDetect from "@hooks/use-orientation-detect";
 
 const App = observer(() => {
 
-  const {isMobile, isDetected} = useMobileDetect()
-
-  const [orientation, setOrientation] = useState('portrait-primary');
-
-  const permission = usePermission()
-
-  useEffect(() => {
-    const orientationChange = () => {
-      console.log(screen.orientation.type)
-    }
-    window.addEventListener('orientationchange', orientationChange)
-    return () => {}
-  }, []);
-
+  const isDetected = useMobileDetect()
+  useOrientationDetect()
 
   if (isDetected) {
-    // if (isMobile) return <Permission/>
-
     switch (screenState.currentScreen) {
+      case -1:
+        return <Permission/>
       case 1:
         return <First/>
       case 2:
@@ -45,6 +33,9 @@ const App = observer(() => {
         return <Disclaimer/>
     }
   }
+
+
+
 })
 
 export default App

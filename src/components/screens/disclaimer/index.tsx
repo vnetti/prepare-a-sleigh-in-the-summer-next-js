@@ -13,7 +13,7 @@ const Disclaimer = () => {
         <LogoPrimary/>
         <Heading/>
         <DisclaimerTextBlock/>
-        <CloseButton onClick={() => screen.closeDisclaimer()}/>
+        <CloseButton onClick={screen.onCloseDisclaimer}/>
         <Navigation/>
       </Grid>
     </section>
