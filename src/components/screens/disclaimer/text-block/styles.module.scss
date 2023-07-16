@@ -1,9 +1,10 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
 .block {
-    width: 1032px;
     font-size: 30px;
     font-weight: 300;
     text-align: justify;
-    hyphens: manual;
 
     h3 {
         font-weight: 500;
@@ -12,8 +13,25 @@
     p {
         margin-top: 1.4em;
         line-height: 40px;
+
         &:last-child {
             font-weight: 600;
+        }
+    }
+
+
+    @include respond-below(xxl) {
+        font-size: 22px;
+
+        p {
+            line-height: 30px;
+        }
+    }
+    @include respond-below(lg) {
+        font-size: 12px;
+
+        p {
+            line-height: 16px;
         }
     }
 }

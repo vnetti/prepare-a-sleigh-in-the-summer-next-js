@@ -9,9 +9,9 @@ import cn from 'classnames';
 const SecondBackground = () => {
   return (
     <Parallax attributes={[
-      {forChild: 1, attributes: {"data-depth": .2}},
-      {forChild: 2, attributes: {"data-depth": .5}},
-      {forChild: 3, attributes: {"data-depth": .7}}
+      // {forChild: 1, attributes: {"data-depth": .5}},
+      // {forChild: 2, attributes: {"data-depth": .8}},
+      // {forChild: 3, attributes: {"data-depth": .9}}
     ]}>
       <Image
         src={bg}

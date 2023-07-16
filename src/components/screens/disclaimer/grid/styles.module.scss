@@ -1,0 +1,67 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+
+.grid {
+    display: grid;
+    position: relative;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    .item {
+
+        &:first-child {
+            grid-column: 1/4;
+            align-self: center;
+        }
+        &:nth-child(2) {
+            align-self: center;
+            grid-column: 4/8;
+            justify-self: end;
+        }
+        &:nth-child(3) {
+            margin-top: 10%;
+            grid-column: 1/8;
+            grid-row: 2/9;
+        }
+        &:nth-child(4) {
+            align-self: center;
+            justify-self: end;
+            grid-column: 11/13;
+            grid-row: 1;
+        }
+        &:last-child {
+            grid-column: 11/13;
+            grid-row: 2/9;
+            align-self: end;
+            justify-self: end;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 145px;
+            height: 535px;
+
+
+            transform: translate(25%, 10%);
+            background: url(../../../../assets/images/border-dashed.svg) center /contain no-repeat;
+
+            @include respond-below(xxl) {
+                background-image: url(../../../../assets/images/border-dashed_xxl.svg);
+                width: 110px;
+                height: 395px;
+            }
+            @include respond-below(xl) {
+                //background-image: url(../../../../assets/images/border-dashed_xxl.svg);
+                width: 85px;
+                height: 320px;
+            }
+            @include respond-below(lg) {
+                background-image: url(../../../../assets/images/border-dashed_lg.svg);
+                width: 68px;
+                height: 237px;
+            }
+        }
+    }
+}

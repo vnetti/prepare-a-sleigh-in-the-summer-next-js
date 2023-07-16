@@ -10,9 +10,9 @@ import Image from "next/image";
 const FirstBackground: FC = ({}) => {
   return (
     <Parallax attributes={[
-      {forChild: 1, attributes: {"data-depth": .2}},
-      {forChild: 2, attributes: {"data-depth": .5}},
-      {forChild: 3, attributes: {"data-depth": .7}}
+      {forChild: 1, attributes: {"data-depth": .3}},
+      // {forChild: 2, attributes: {"data-depth": .5}},
+      // {forChild: 3, attributes: {"data-depth": .7}}
     ]}>
       <Image src={bg} alt={'Пиздатое событие уходящего года!'} fill quality='100' priority placeholder={'blur'}/>
       <Image className={cn('parallax_item', styles.right)} src={palmRight} alt=""/>

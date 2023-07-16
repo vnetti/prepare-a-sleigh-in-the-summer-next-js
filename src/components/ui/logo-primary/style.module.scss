@@ -3,6 +3,7 @@
 
 .logo {
     max-width: 280px;
+    height: auto;
 
     @include respond-below(xxl) {
         max-width: 210px;

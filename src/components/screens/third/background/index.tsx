@@ -8,8 +8,8 @@ import cn from 'classnames';
 const ThirdBackground = () => {
   return (
     <Parallax attributes={[
-      {forChild: 1, attributes: {"data-depth": .2}},
-      {forChild: 2, attributes: {"data-depth": .5}},
+      // {forChild: 1, attributes: {"data-depth": .2}},
+      // {forChild: 2, attributes: {"data-depth": .5}},
       {forChild: 3, attributes: {"data-depth": .7}}
     ]}>
       <Image

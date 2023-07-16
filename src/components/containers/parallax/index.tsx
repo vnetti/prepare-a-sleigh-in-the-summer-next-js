@@ -76,12 +76,12 @@ const Parallax: FC<PropsWithChildren<propsType>> = ({ children, options, attribu
     if (parallaxInstance) {
       if (md?.mobile()) {
         parallaxInstance.limit(50, 50);
-        parallaxInstance.friction(.05, .07)
-        parallaxInstance.scalar(10, 5)
+        // parallaxInstance.friction(.05, .07)
+        // parallaxInstance.scalar(10, 5)
       } else {
         parallaxInstance.limit(false, false);
-        parallaxInstance.friction(.1, .1)
-        parallaxInstance.scalar(10, 10)
+        // parallaxInstance.friction(.1, .1)
+        // parallaxInstance.scalar(10, 10)
       }
     }
   }, [parallaxInstance])

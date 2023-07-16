@@ -1,0 +1,41 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.button {
+  position: relative;
+  z-index: 1;
+
+  background: none;
+  border: none;
+  color: inherit;
+
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 300;
+
+  display: flex;
+  align-items: center;
+  gap: 0 15px;
+
+  svg {
+    width: 45px;
+    height: auto;
+  }
+
+  @include respond-below(xxl) {
+    font-size: 18px;
+    gap: 0 15px;
+
+    svg {
+      width: 35px;
+    }
+  }
+  @include respond-below(lg) {
+    font-size: 12px;
+    gap: 0 10px;
+
+    svg {
+      width: 24px;
+    }
+  }
+}

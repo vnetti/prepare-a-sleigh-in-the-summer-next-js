@@ -1,0 +1,14 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.heading {
+  font-size: 70px;
+  font-weight: 700;
+
+  @include respond-below(xxl) {
+    font-size: 55px;
+  }
+  @include respond-below(lg) {
+    font-size: 30px;
+  }
+}
