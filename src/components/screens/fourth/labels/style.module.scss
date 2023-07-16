@@ -10,7 +10,7 @@
   max-width: 35vw;
   width: 100%;
   justify-content: space-between;
-  gap: 0 3vw;
+  gap: 0 1vw;
 
   @include respond-above(lg) {
     left: 50vw;
@@ -59,7 +59,7 @@
       }
     }
     &__text {
-      font-size: 9px;
+      font-size: 8px;
 
       @include respond-above(lg) {
         font-size: 11px;

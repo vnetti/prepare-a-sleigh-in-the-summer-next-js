@@ -2,6 +2,11 @@
 @import 'assets/styles/mixins';
 
 .text {
+  @include respond-below(lg) {
+    margin-top: 25px;
+    padding-right: 20px;
+    max-height: 57vh;
+  }
   p {
     margin-top: 25px;
     font-size: 25px;
@@ -26,8 +31,12 @@
   @include respond-below(lg) {
     p {
       margin-top: 25px;
-      font-size: 10px;
-      line-height: 15px;
+      font-size: 15px;
+      line-height: 20px;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 }

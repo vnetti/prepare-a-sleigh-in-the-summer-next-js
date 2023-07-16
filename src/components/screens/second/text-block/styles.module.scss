@@ -8,23 +8,6 @@ $thumb-color: $white;
   @include respond-below(lg) {
     padding-right: 20px;
     max-height: 57vh;
-    //overflow-y: scroll;
-    //scrollbar-color: $thumb-color $track-color;
-    //
-    //&::-webkit-scrollbar {
-    //  width: 4px;
-    //
-    //  &-track {
-    //    background: $track-color;
-    //    border-radius: 5px;
-    //  }
-    //  &-thumb {
-    //    background: $thumb-color;
-    //    border-radius: 5px;
-    //  }
-    //
-    //}
-
   }
 
 

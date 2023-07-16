@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 import { Children, FC, PropsWithChildren, ReactNode, useEffect, useRef, useState } from 'react';
 import ParallaxJs from 'parallax-js';
 import MobileDetect from 'mobile-detect';
-import Portal from "@components/containers/portal";
+import Portal from '@components/containers/portal';
 
 type attributesType = {
   'data-relative-input'?: boolean;
@@ -51,7 +51,7 @@ const Parallax: FC<PropsWithChildren<propsType>> = ({ children, options, attribu
     };
 
     if (ref.current && attributes) {
-      ref.current.setAttribute('data-depth', '2')
+      ref.current.setAttribute('data-depth', '2');
       Array.from(ref.current.children).forEach((child, index) => {
         const attributes = getAttributes(index);
         if (attributes) {
@@ -84,7 +84,7 @@ const Parallax: FC<PropsWithChildren<propsType>> = ({ children, options, attribu
         // parallaxInstance.scalar(10, 10)
       }
     }
-  }, [parallaxInstance])
+  }, [parallaxInstance]);
 
   return (
     <Portal isBackground>

@@ -4,6 +4,7 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+  padding-left: 20px;
 
   button {
     min-width: max-content;
@@ -33,7 +34,7 @@
   }
   @include respond-below(lg) {
     button {
-      padding: 5px 30px;
+      padding: 5px 25px;
       border-radius: 5px;
       font-size: 12px;
     }

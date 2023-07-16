@@ -3,10 +3,11 @@ import StartLabel from '@components/ui/start-label';
 import FirstTextBlock from '@screens/first/text-block';
 import Navigation from '@components/ui/navigation';
 import FirstBackground from '@screens/first/background';
-import usePermission from '@hooks/use-permission';
+import usePermission from "@hooks/use-permission";
 
 const First = () => {
-  const permission = usePermission();
+
+  const permission = usePermission()
 
   return (
     <section className={'container container_full'}>

@@ -1,8 +1,14 @@
 import classes from './style.module.scss';
+import useScrollbar from "@hooks/use-scrollbar";
+import useResize from "@hooks/use-resize";
+import 'overlayscrollbars/overlayscrollbars.css'
 
 const Text = () => {
+
+  const ref = useScrollbar(useResize(992))
+
   return (
-    <div className={classes.text}>
+    <div className={classes.text} ref={ref}>
       <p>
         Так что, собрались с нами на Новый год? Хорошо, но ты понимаешь, что мы тут не просто так на
         пустом месте стулья ставим, верно? Для&nbsp;этого нужно зарегистрироваться! Нет-нет, это не

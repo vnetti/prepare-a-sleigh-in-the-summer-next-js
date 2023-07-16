@@ -8,7 +8,7 @@ const useScrollbar = (hasScroll: boolean) => {
     let scrollbars: OverlayScrollbars;
 
     if (root.current && hasScroll) {
-      scrollbars = OverlayScrollbars(root.current, {scrollbars: {theme: 'os-theme-light'}});
+      scrollbars = OverlayScrollbars(root.current, { scrollbars: {theme: 'os-theme-light'}});
 
       return () => {
         if (scrollbars) scrollbars.destroy();

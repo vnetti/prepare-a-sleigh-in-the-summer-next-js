@@ -66,4 +66,21 @@
             }
         }
     }
+    &_justify {
+        &-start {
+            justify-content: start;
+        }
+        &-end {
+            justify-content: end;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-space-between {
+            justify-content: space-between;
+        }
+        &-space-around {
+            justify-content: space-around;
+        }
+    }
 }

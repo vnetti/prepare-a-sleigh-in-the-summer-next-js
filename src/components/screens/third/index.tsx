@@ -7,7 +7,8 @@ import Text from '@screens/third/text';
 import Column from '@components/containers/column';
 import Card from 'components/screens/third/card';
 import images from '@screens/third/images';
-import GridCards from '@screens/third/grid-cards';
+import classes from './card/style.module.scss'
+
 
 export type ICard = {
   id: number;
@@ -76,21 +77,22 @@ const Third = () => {
     },
   ];
 
+
   return (
     <section className="container container_full">
       <ThirdBackground />
-      <Column>
+      <Column isPressDown>
         <Grid>
           <LogoVector />
           <Heading />
           <Text />
         </Grid>
         <></>
-        <GridCards>
-          {data.map((card) => (
-            <Card key={card.id} card={card}/>
-          ))}
-        </GridCards>
+          <div className={classes.row}>
+            {data.map((card) => (
+              <Card key={card.id} card={card}/>
+            ))}
+          </div>
       </Column>
       <Navigation />
     </section>

@@ -1,0 +1,15 @@
+.phone {
+  animation: rotate 3s infinite ease;
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  20% {
+    rotate: 80deg;
+  }
+  40% {
+    rotate: 0deg;
+  }
+}

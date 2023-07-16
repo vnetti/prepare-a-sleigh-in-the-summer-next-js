@@ -2,16 +2,27 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  &_permission {
+    align-items: center;
+    justify-content: space-around;
+    padding: 15% 0;
+  }
 }
 
+
 .item {
-  &:first-child {
-    flex: 0 0 auto;
-  }
-  &:nth-child(2) {
-    flex: 1 0 auto;
-  }
-  &:last-child {
-    flex: 0 0 auto;
+
+
+  &_press-down {
+    &:first-child {
+      flex: 0 0 auto;
+    }
+    &:nth-child(2) {
+      flex: 1 0 auto;
+    }
+    &:last-child {
+      flex: 0 0 auto;
+    }
   }
 }

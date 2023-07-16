@@ -1,5 +1,5 @@
-import styles from './styles.module.scss';
-import { Children, FC, PropsWithChildren, ReactNode } from 'react';
+import classes from './styles.module.scss';
+import { Children, CSSProperties, FC, PropsWithChildren, ReactNode } from 'react';
 import cn from 'classnames';
 
 type breakpoints = 'sm' | 'md' | 'lg' | 'xl' | 'auto';
@@ -12,21 +12,25 @@ type propsType = {
     justify?: 'start' | 'end' | 'center' | 'space-between' | 'space-around';
     gap?: breakpoints;
   };
-  _class?: string
+  _class?: string;
+  styles?: CSSProperties;
 };
 
-const Row: FC<PropsWithChildren<propsType>> = ({ children, style, _class }) => {
+const Row: FC<PropsWithChildren<propsType>> = ({ children, style, _class, styles }) => {
   return (
-    <div className={cn(
-      _class,
-      styles.row,
-      style?.padding && styles[`row_padding-${style.padding}`],
-      style?.gap && styles[`row_gap-${style.gap}`],
-      style?.justify && styles[`row_justify-${style.justify}`],
-      style?.vertical && styles[`row_vertical-${style.vertical}`]
-    )}>
+    <div
+      className={cn(
+        _class,
+        classes.row,
+        style?.padding && classes[`row_padding-${style.padding}`],
+        style?.gap && classes[`row_gap-${style.gap}`],
+        style?.justify && classes[`row_justify-${style.justify}`],
+        style?.vertical && classes[`row_vertical-${style.vertical}`],
+      )}
+      style={{ ...styles }}
+    >
       {Children.map(children, (child) => (
-        <div className={styles.item}>{child}</div>
+        <div className={classes.item}>{child}</div>
       ))}
     </div>
   );
