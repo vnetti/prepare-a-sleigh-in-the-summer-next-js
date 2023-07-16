@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
-import screenState from '@store/screen'
-// import '@assets/vendor/orientationChange'
+import screenState from '@store/screen';
 
 const useOrientationDetect = () => {
-
   useEffect(() => {
     const orientationChange = () => {
-      console.log(screen.orientation.type)
-      screenState.setOrientation(screen.orientation.type);
+      window.scrollTo(0, 0);
+      if (window.innerWidth > window.innerHeight) {
+        screenState.setOrientation('landscape');
+      } else screenState.setOrientation('portrait');
     };
+    orientationChange();
 
-    screenState.setOrientation(screen.orientation.type);
-    window.addEventListener('orientationchange', orientationChange);
+    window.addEventListener('resize', orientationChange);
 
-    return () => window.removeEventListener('orientationchange', orientationChange);
+    return () => window.removeEventListener('resize', orientationChange);
   }, []);
 };
 

@@ -2,19 +2,15 @@ import LogoPrimary from '@components/ui/logo-primary';
 import Phone from '@screens/permission/phone';
 import Text from '@screens/permission/text';
 import Column from '@components/containers/column';
-import {FC, useEffect, useMemo} from 'react';
-import screenState from '@store/screen';
-import { observer } from 'mobx-react-lite';
-import usePermission from '@hooks/use-permission';
-import useOrientationDetect from "@hooks/use-orientation-detect";
-
+import { FC } from 'react';
+// import usePermission from '@hooks/use-permission';
 
 type propsType = {
-  orientation?: string
-}
+  orientation?: string;
+};
 
 const Permission: FC<propsType> = ({}) => {
-  const { permission } = usePermission();
+  // const { permission } = usePermission();
 
   return (
     <section className="container container_full">
@@ -25,6 +21,6 @@ const Permission: FC<propsType> = ({}) => {
       </Column>
     </section>
   );
-}
+};
 
 export default Permission;

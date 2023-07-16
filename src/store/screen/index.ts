@@ -1,7 +1,7 @@
 import { action, makeObservable, observable } from 'mobx';
 import MobileDetect from 'mobile-detect';
 
-type orientationType = "landscape-primary" | "landscape-secondary" | "portrait-primary" | "portrait-secondary" | "unknown"
+type orientationType = 'landscape' | 'portrait' | 'unknown';
 type screensType = -1 | 0 | 1 | 2 | 3 | 4 | 5;
 
 class Screen {
@@ -15,7 +15,7 @@ class Screen {
 
   constructor() {
     this.currentScreen = 0;
-    this.prevScreen = this.currentScreen as screensType
+    this.prevScreen = this.currentScreen as screensType;
 
     this.minScreen = -1;
     this.maxScreen = 5;
@@ -47,18 +47,18 @@ class Screen {
    * @param {screensType} screen
    */
   private setPrevScreen = (screen: screensType) => {
-    if (screen !== -1) this.prevScreen = screen
-  }
+    if (screen !== -1) this.prevScreen = screen;
+  };
 
   /**
    * Смена экрана для запроса перевернуть устройство
    */
   private onPermissionScreen = () => {
     if (this.isMobile) {
-      if (this.orientation.includes('landscape')) {
+      if (this.orientation === 'landscape') {
         this.setScreen(this.prevScreen);
       } else {
-        this.setScreen(-1)
+        this.setScreen(-1);
       }
     }
   };
@@ -68,8 +68,7 @@ class Screen {
    * @param {'next' | 'prev' | screensType} dir направление или конкретный номер экрана в диапазоне от
    */
   private setScreen = (dir: 'next' | 'prev' | screensType) => {
-
-    this.setPrevScreen(this.currentScreen as screensType)
+    this.setPrevScreen(this.currentScreen as screensType);
 
     switch (dir) {
       case 'next':

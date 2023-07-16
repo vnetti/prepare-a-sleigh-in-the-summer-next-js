@@ -7,6 +7,7 @@ html, body, #__next, main {
 }
 
 html {
+    scroll-behavior: smooth;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
