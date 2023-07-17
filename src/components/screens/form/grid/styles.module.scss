@@ -1,0 +1,107 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+.portal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba($black, 60%);
+  backdrop-filter: blur(26.5px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8% 0;
+
+  height: 100%;
+
+  .item {
+    /* logo */
+    &:first-child {
+      grid-column: 1/3;
+    }
+
+    /* heading */
+    &:nth-child(2) {
+      grid-column: 3/11;
+    }
+
+    /* close button */
+    &:nth-child(3) {
+      grid-column: 11/13;
+      justify-self: end;
+    }
+
+    /* inputs and buttons*/
+    &:nth-child(n + 4):nth-child(-n + 7),
+    &:last-child {
+      grid-column: 2/12;
+      justify-self: center;
+
+      width: 40vw;
+    }
+
+    /* inputs */
+    &:nth-child(n + 4):nth-child(-n + 7) {
+      
+    }
+
+    /* buttons */
+    &:last-child {
+    }
+  }
+
+  @include respond-below(xxl) {
+    .item {
+
+      /* inputs and buttons*/
+      &:nth-child(n + 4):nth-child(-n + 7),
+      &:last-child {
+        width: 50vw;
+      }
+    }
+  }
+  @include respond-below(xl) {
+    .item {
+
+      /* inputs and buttons*/
+      &:nth-child(n + 4):nth-child(-n + 7),
+      &:last-child {
+        width: 60vw;
+      }
+    }
+  }
+  @include respond-below(lg) {
+    .item {
+
+      /* inputs*/
+      &:nth-child(n + 4):nth-child(-n + 7) {
+        width: 90%;
+        &:nth-child(2n) {
+          grid-row: 2/4;
+        }
+
+        /* first two */
+        &:nth-child(n+4):nth-child(-n + 5) {
+          justify-self: start;
+          grid-column: 1/7;
+        }
+
+        /* last two */
+        &:nth-child(n+6) {
+          justify-self: end;
+          grid-column: 7/13;
+        }
+      }
+
+      /* buttons */
+      &:last-child {
+        width: 100%;
+        grid-column: 2/12;
+      }
+    }
+  }
+}

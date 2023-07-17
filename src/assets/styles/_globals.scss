@@ -1,67 +1,82 @@
 button {
-    font-family: inherit;
+  font-family: inherit;
 }
 
-html, body, #__next, main {
-    height: 100%;
+html,
+body,
+#__next,
+main {
+  height: 100%;
 }
 
 html {
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
-    font-family: "TT Commons", sans-serif;
-    background-color: $black;
-    color: $white;
+  font-family: 'TT Commons', sans-serif;
+  background-color: $black;
+  color: $white;
 }
 
 main {
-    min-height: 100vh;
-    //overflow: clip;
-    //overflow: hidden;
+  min-height: 100vh;
+  //overflow: clip;
+  //overflow: hidden;
 }
 
 .container {
-    position: relative;
-    padding: $container-padding;
+  position: relative;
+  padding: $container-padding;
 
+  @include respond-below(xxl) {
+    padding: $container-padding-xxl;
+  }
+  @include respond-below(xl) {
+    padding: $container-padding-xl;
+  }
+  @include respond-below(lg) {
+    padding: $container-padding-lg;
+  }
 
+  &_full {
+    height: 100%;
+  }
+  &_form {
+    overflow: hidden scroll;
+    scrollbar-width: none;
 
-    @include respond-below(xxl) {
-        padding: $container-padding-xxl;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    @include respond-below(xl) {
-        padding: $container-padding-xl;
-    }
-    @include respond-below(lg) {
-        padding: $container-padding-lg;
-    }
-
-    &_full {
-        height: 100%;
-    }
+  }
+  &_fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .parallax_item {
-    position: absolute;
-    width: 100%;
-    height: auto;
+  position: absolute;
+  width: 100%;
+  height: auto;
 }
 
 .os-theme-light {
-
-    &.os-scrollbar-vertical {
-        --os-size: 9px;
-        --os-track-border-radius: 10px;
-        --os-track-bg: #414141;
-        --os-handle-max-size: 62px;
-        --os-handle-bg: #fff;
-        --os-track-bg-hover: #414141;
-    }
+  &.os-scrollbar-vertical {
+    --os-size: 9px;
+    --os-track-border-radius: 10px;
+    --os-track-bg: #414141;
+    --os-handle-max-size: 62px;
+    --os-handle-bg: #fff;
+    --os-track-bg-hover: #414141;
+  }
 }

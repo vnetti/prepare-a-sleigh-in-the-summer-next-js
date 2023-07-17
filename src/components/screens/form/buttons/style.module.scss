@@ -1,0 +1,41 @@
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    min-width: max-content;
+    padding: 2% 8%;
+    border: 1px solid $orange;
+    border-radius: 10px;
+    background: $orange-transparent;
+    backdrop-filter: blur(20px);
+    font-size: 22px;
+    color: $orange;
+  }
+
+  @include respond-below(xxl) {
+    justify-content: space-around;
+    button {
+      border-radius: 7px;
+      font-size: 19px;
+    }
+  }
+  @include respond-below(xxl) {
+    button {
+      border-radius: 7px;
+      font-size: 15px;
+    }
+  }
+  @include respond-below(lg) {
+    padding: 0 15vw;
+    gap: 0 20px;
+    button {
+      padding: 1.4% 8%;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+  }
+}

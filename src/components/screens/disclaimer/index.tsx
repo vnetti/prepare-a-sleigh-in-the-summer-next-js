@@ -14,6 +14,7 @@ const Disclaimer = () => {
         <Heading/>
         <DisclaimerTextBlock/>
         <CloseButton onClick={screen.onCloseDisclaimer}/>
+        <span/>
         <Navigation/>
       </Grid>
     </section>

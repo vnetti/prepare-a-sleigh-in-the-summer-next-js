@@ -1,0 +1,64 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.item {
+  user-select: none;
+
+  .label, &_clicked {
+    display: inline-block;
+    font-size: 25px;
+    color: $orange;
+    cursor: pointer;
+  }
+  .input {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $white;
+    font-size: 41px;
+    padding: .2em .1em;
+    cursor: text;
+
+    color: $white;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: none;
+      -webkit-text-fill-color: $white;
+      -webkit-box-shadow: none;
+      transition: background-color 50000s ease-in-out 0s;
+    }
+  }
+  &_clicked {
+    transform: translateY(-30%);
+    padding: 4% 0;
+    cursor: text;
+    user-select: auto;
+  }
+
+  @include respond-below(xxl) {
+    .label, &_clicked {
+      font-size: 20px;
+    }
+    .input {
+      font-size: 32px;
+    }
+  }
+  @include respond-below(xl) {
+    &_clicked {
+      padding: 3.5% 0;
+    }
+  }
+  @include respond-below(lg) {
+
+    .label, &_clicked {
+      font-size: 14px;
+    }
+    .input {
+      font-size: 20px;
+    }
+  }
+}
