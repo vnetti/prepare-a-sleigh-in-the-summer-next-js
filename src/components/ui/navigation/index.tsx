@@ -1,11 +1,19 @@
 import styles from './styles.module.scss';
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import screenState from '@store/screen';
 import { observer } from 'mobx-react-lite';
 import Portal from '@components/containers/portal';
 
 const ButtonsBlock = () => {
+  const handlerButton = useCallback(
+    (handler: () => void) => {
+      if (screenState.currentScreen === 0) return screenState.onCloseDisclaimer;
+      return handler;
+    },
+    [screenState.currentScreen],
+  );
+
   return (
     <div
       className={cn(
@@ -15,9 +23,8 @@ const ButtonsBlock = () => {
     >
       {screenState.currentScreen > 1 || screenState.currentScreen === 0 ? (
         <button
-          disabled={screenState.currentScreen <= 1}
           className={cn(styles.button, styles.button_prev)}
-          onClick={screenState.onPrevScreen}
+          onClick={handlerButton(screenState.onPrevScreen)}
         >
           <span>назад</span>
           <svg
@@ -39,9 +46,9 @@ const ButtonsBlock = () => {
       )}
       {screenState.currentScreen < 5 ? (
         <button
-          disabled={screenState.currentScreen < 1 || screenState.currentScreen > 4}
+          disabled={screenState.currentScreen > 4}
           className={cn(styles.button, styles.button_next)}
-          onClick={screenState.onNextScreen}
+          onClick={handlerButton(screenState.onNextScreen)}
         >
           <span>далее</span>
           <svg
@@ -66,7 +73,6 @@ const ButtonsBlock = () => {
 };
 
 const Navigation: FC = observer(() => {
-
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -76,13 +82,13 @@ const Navigation: FC = observer(() => {
     };
   }, []);
 
-  if (screenState.currentScreen === 0) return <ButtonsBlock/>;
+  if (screenState.currentScreen === 0) return <ButtonsBlock />;
 
   if (!mounted) return null;
 
   return (
     <Portal>
-      <ButtonsBlock/>
+      <ButtonsBlock />
     </Portal>
   );
 });
