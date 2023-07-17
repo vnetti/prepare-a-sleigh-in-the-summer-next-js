@@ -27,6 +27,7 @@
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
       border: none;
+      border-bottom: 1px solid $white;
       -webkit-text-fill-color: $white;
       -webkit-box-shadow: none;
       transition: background-color 50000s ease-in-out 0s;
