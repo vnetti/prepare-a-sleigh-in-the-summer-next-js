@@ -45,7 +45,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         }),
       );
     } else {
-      res.status(405);
+      res.status(405).send("");
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'max-age=180000');
       res.end(
