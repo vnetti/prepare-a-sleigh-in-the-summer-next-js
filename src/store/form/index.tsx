@@ -42,7 +42,7 @@ class Form {
       mg.messages.create('sandbox31d7434ac5c249a386f29c7e5f9e525f.mailgun.org', {
         from: "Excited User <mukshin.an@gmail.com>",
         to: ["mukshin.an@gmail.com", "spbkvv@bk.ru"],
-        subject: "Заявка деду морозу",
+        subject: "Заявка деду морозу ${this.lastName} ${this.firstName}",
         text: `Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!`,
       })
         .then(msg => {
