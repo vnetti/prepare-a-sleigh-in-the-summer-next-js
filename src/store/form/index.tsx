@@ -1,8 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import formData from "form-data";
 import Mailgun from "mailgun.js";
-
-import sgMail from '@sendgrid/mail'
 import * as process from "process";
 
 
@@ -63,24 +61,6 @@ class Form {
       this.isLoading = false
     }
   };
-
-  // onSend = () => {
-  //   console.log(process.env.SENDGRID_API_KEY)
-  //
-  //   const message = {
-  //     to: "mukshin.an@gmail.com",
-  //     from: {
-  //       name: 'SaniLetom.ru',
-  //       email: "info@saniletom.ru"
-  //     },
-  //     subject: "Заявка деду морозу",
-  //     text: `Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!`,
-  //     html: `<h1>Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!</h1>`
-  //   }
-  //   sgMail.send(message)
-  //     .then(response => console.log('Email sent...'))
-  //     .catch(error => console.log(error.message))
-  // }
 }
 
 export default new Form();

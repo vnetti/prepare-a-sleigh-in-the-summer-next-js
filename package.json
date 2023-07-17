@@ -12,6 +12,7 @@
     "https": "npx local-ssl-proxy \\\n\n\t--key localhost-key.pem \\ # our encryption key\n\n\t--cert localhost.pem \\ # our certificate\n\n  --source 3001 \\ # the port we want the proxy server to listen to\n\n  --target 3000 # the port our Next.js app is listening on"
   },
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@sendgrid/mail": "^7.7.0",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
