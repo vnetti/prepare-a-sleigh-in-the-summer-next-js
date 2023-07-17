@@ -9,7 +9,7 @@ import Last from '@screens/last';
 import useMobileDetect from '@hooks/use-mobile-detect';
 import Orientation from 'components/screens/orientation';
 import useOrientationDetect from '@hooks/use-orientation-detect';
-import Permission from "@screens/permission";
+import Permission from '@screens/permission';
 
 const App = observer(() => {
   const isDetected = useMobileDetect();

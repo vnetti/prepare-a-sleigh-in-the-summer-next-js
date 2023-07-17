@@ -31,7 +31,7 @@ const usePermission = () => {
       screenState.onClosePermission()
     }
   }
-  return screenState.onClosePermission()
+  return () => screenState.onClosePermission()
 };
 
 export default usePermission;

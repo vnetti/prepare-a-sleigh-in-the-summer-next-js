@@ -17,6 +17,7 @@ const Disclaimer = () => {
         <Navigation/>
       </Grid>
     </section>
+    // @todo доделать указатель на кнопки
   )
 }
 

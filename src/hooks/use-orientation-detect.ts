@@ -1,13 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import screenState from '@store/screen';
 
 const useOrientationDetect = () => {
+  const [state, setState] = useState('portrait');
+
+  useEffect(() => {
+    screenState.setOrientation(state as 'landscape' | 'portrait');
+  }, [state]);
+
   useEffect(() => {
     const orientationChange = () => {
       if (window.innerWidth > window.innerHeight) {
-        screenState.setOrientation('landscape');
-      } else screenState.setOrientation('portrait');
-      window.scrollTo(0, 0)
+        setState('landscape');
+      } else {
+        setState('portrait');
+      }
+      window.scrollTo(0, 0);
     };
     orientationChange();
 
