@@ -2,35 +2,39 @@ import { action, makeObservable, observable } from 'mobx';
 import MobileDetect from 'mobile-detect';
 
 type orientationType = 'landscape' | 'portrait' | 'unknown';
-type screensType = -1 | 0 | 1 | 2 | 3 | 4 | 5;
+type screensType = -2 | -1 | 0 | 1 | 2 | 3 | 4 | 5;
 
 class Screen {
   currentScreen: number;
   private prevScreen: screensType;
+
+  isGranted: boolean | 'unknown';
   private orientation: orientationType;
+
   private isMobile: boolean | 'unknown';
-  private readonly maxScreen: number;
-  private readonly minScreen: number;
+  private isIos: boolean;
   private userAgent: string;
 
   constructor() {
     this.currentScreen = 0;
     this.prevScreen = this.currentScreen as screensType;
 
-    this.minScreen = -1;
-    this.maxScreen = 5;
-
+    this.isGranted = 'unknown';
     this.orientation = 'unknown';
     this.isMobile = true;
+    this.isIos = true;
 
     this.userAgent = 'unknown';
 
     makeObservable(this, {
+      isGranted: observable,
       currentScreen: observable,
       setOrientation: action,
       onNextScreen: action,
       onPrevScreen: action,
       onCloseDisclaimer: action,
+      setIsGranted: action,
+      onClosePermission: action
     });
   }
 
@@ -51,9 +55,9 @@ class Screen {
   };
 
   /**
-   * Смена экрана для запроса перевернуть устройство
+   * Смена экрана для запроса перевернуть устройство не для IOS
    */
-  private onPermissionScreen = () => {
+  private onPermissionScreenNotIos = () => {
     if (this.isMobile) {
       if (this.orientation === 'landscape') {
         this.setScreen(this.prevScreen);
@@ -64,11 +68,26 @@ class Screen {
   };
 
   /**
+   * Смена экрана для запроса перевернуть устройство для IOS
+   */
+  private onPermissionScreenIos = () => {
+    if (this.isMobile) {
+      if (this.orientation !== 'landscape') this.setScreen(-1);
+      else if (this.isGranted && this.isGranted !== 'unknown') {
+        this.setScreen(this.prevScreen);
+      } else if (this.isGranted === 'unknown') {
+        this.setIsGranted(this.getSessionGranted())
+        this.setScreen(-2);
+      } else this.setScreen(this.prevScreen);
+    }
+  };
+
+  /**
    * Сменить текущий экран по направлению или конкретный
    * @param {'next' | 'prev' | screensType} dir направление или конкретный номер экрана в диапазоне от
    */
   private setScreen = (dir: 'next' | 'prev' | screensType) => {
-    this.setPrevScreen(this.currentScreen as screensType);
+    if (this.currentScreen >= 0) this.setPrevScreen(this.currentScreen as screensType);
 
     switch (dir) {
       case 'next':
@@ -79,6 +98,27 @@ class Screen {
         return (this.currentScreen = dir);
     }
   };
+
+  /**
+   * Восстановление доступа к акселерометру из Window.sessionStorage
+   */
+  private getSessionGranted = () => {
+    let sessionGranted: boolean | 'unknown';
+    switch (sessionStorage.getItem('isGranted') as 'true' | 'false' | 'unknown' | undefined) {
+      case 'true':
+        sessionGranted = true;
+        break;
+      case 'false':
+        sessionGranted = false;
+        break;
+      case undefined:
+        sessionGranted = 'unknown';
+        break;
+      default:
+        sessionGranted = 'unknown';
+    }
+    return sessionGranted
+  }
 
   // ------------------------
   //
@@ -100,6 +140,13 @@ class Screen {
   };
 
   /**
+   * Закрывает экран запроса на разрешение на использование акселерометра
+   */
+  onClosePermission = () => {
+    this.setScreen(0)
+  }
+
+  /**
    * Закрывает дисклеймер -> переход на первый экран
    */
   onCloseDisclaimer = () => {
@@ -112,7 +159,7 @@ class Screen {
    */
   setOrientation = (value: orientationType) => {
     this.orientation = value;
-    this.onPermissionScreen();
+    this.isIos ? this.onPermissionScreenIos() : this.onPermissionScreenNotIos();
   };
 
   /**
@@ -126,7 +173,19 @@ class Screen {
 
     const md = new MobileDetect(this.userAgent);
     this.isMobile = !!md.mobile();
+    this.isIos = md.is('IOS');
   };
+
+  /**
+   * Устанавливаем разрешение на использование акселерометра
+   */
+  setIsGranted = (value: boolean | 'unknown') => {
+    const sessionGranted = this.getSessionGranted()
+    if (value !== sessionGranted) sessionStorage.setItem('isGranted', value.toString());
+
+    this.isGranted = value;
+  };
+
 }
 
 export default new Screen();

@@ -7,8 +7,9 @@ import Third from '@screens/third';
 import Fourth from '@screens/fourth';
 import Last from '@screens/last';
 import useMobileDetect from '@hooks/use-mobile-detect';
-import Permission from '@screens/permission';
+import Orientation from 'components/screens/orientation';
 import useOrientationDetect from '@hooks/use-orientation-detect';
+import Permission from "@screens/permission";
 
 const App = observer(() => {
   const isDetected = useMobileDetect();
@@ -16,8 +17,10 @@ const App = observer(() => {
 
   if (isDetected) {
     switch (screenState.currentScreen) {
-      case -1:
+      case -2:
         return <Permission />;
+      case -1:
+        return <Orientation />;
       case 1:
         return <First />;
       case 2:

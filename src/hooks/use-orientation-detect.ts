@@ -4,10 +4,10 @@ import screenState from '@store/screen';
 const useOrientationDetect = () => {
   useEffect(() => {
     const orientationChange = () => {
-      window.scrollTo(0, 0);
       if (window.innerWidth > window.innerHeight) {
         screenState.setOrientation('landscape');
       } else screenState.setOrientation('portrait');
+      window.scrollTo(0, 0)
     };
     orientationChange();
 

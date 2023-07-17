@@ -1,24 +1,26 @@
 import LogoPrimary from '@components/ui/logo-primary';
-import Phone from '@screens/permission/phone';
 import Text from '@screens/permission/text';
-import Column from '@components/containers/column';
 import { FC } from 'react';
-// import usePermission from '@hooks/use-permission';
+import Grid from "@screens/permission/grid";
+import PermissionButton from "@screens/permission/button";
+import Heading from "@screens/permission/heading";
+import usePermission from '@hooks/use-permission';
 
 type propsType = {
   orientation?: string;
 };
 
 const Permission: FC<propsType> = ({}) => {
-  // const { permission } = usePermission();
+  const onPermission = usePermission();
 
   return (
     <section className="container container_full">
-      <Column permission>
+      <Grid>
         <LogoPrimary />
-        <Phone />
+        <Heading/>
+        <PermissionButton onClick={onPermission} />
         <Text />
-      </Column>
+      </Grid>
     </section>
   );
 };

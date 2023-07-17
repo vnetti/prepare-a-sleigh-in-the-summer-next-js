@@ -1,0 +1,9 @@
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+.heading {
+  font-size: 29px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
