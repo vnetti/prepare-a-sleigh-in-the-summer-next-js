@@ -17,7 +17,7 @@ type propsType = {
 };
 
 const Form: FC<propsType> = observer(({ onLink, onClose }) => {
-  const onsubmit = () => formState.onSend();
+  const onsubmit = () => formState.onSubmit();
 
   const callbacks = {
     onFirstNameChange: useCallback((value: string) => formState.setFirstName(value), []),

@@ -42,12 +42,13 @@ class Form {
     } else {
       this.isLoading = true
       const mailgun = new Mailgun(formData);
-      const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'c5d2e63c3f27a534a3ebe6de4dff4cc7-c30053db-b4b8c3b5'});
+      const mg = mailgun.client({username: 'api', key: process.env.NEXT_PUBLIC_MAILGUN_API_KEY || 'asdasd'});
       mg.messages.create('sandbox31d7434ac5c249a386f29c7e5f9e525f.mailgun.org', {
         from: "Excited User <mukshin.an@gmail.com>",
         to: ["mukshin.an@gmail.com", "spbkvv@bk.ru"],
         subject: "Заявка деду морозу ${this.lastName} ${this.firstName}",
         text: `Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!`,
+        html: `<h1>Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!</h1>`,
       })
         .then(msg => {
           this.onClearField()
@@ -63,25 +64,23 @@ class Form {
     }
   };
 
-  onSend = () => {
-    console.log(process.env.SENDGRID_API_KEY)
-
-    sgMail.setApiKey('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')
-
-    const message = {
-      to: "mukshin.an@gmail.com",
-      from: {
-        name: 'SaniLetom.ru',
-        email: "info@saniletom.ru"
-      },
-      subject: "Заявка деду морозу",
-      text: `Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!`,
-      html: `<h1>Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!</h1>`
-    }
-    sgMail.send(message)
-      .then(response => console.log('Email sent...'))
-      .catch(error => console.log(error.message))
-  }
+  // onSend = () => {
+  //   console.log(process.env.SENDGRID_API_KEY)
+  //
+  //   const message = {
+  //     to: "mukshin.an@gmail.com",
+  //     from: {
+  //       name: 'SaniLetom.ru',
+  //       email: "info@saniletom.ru"
+  //     },
+  //     subject: "Заявка деду морозу",
+  //     text: `Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!`,
+  //     html: `<h1>Я, ${this.lastName} ${this.firstName}, официально подтверждаю, что я не говно человек!</h1>`
+  //   }
+  //   sgMail.send(message)
+  //     .then(response => console.log('Email sent...'))
+  //     .catch(error => console.log(error.message))
+  // }
 }
 
 export default new Form();
