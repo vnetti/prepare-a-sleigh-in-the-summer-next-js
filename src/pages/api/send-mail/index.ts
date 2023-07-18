@@ -20,6 +20,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         console.log('до пасрса')
         const body = JSON.parse(req.body)
         console.log('после пасрса')
+        console.log(body)
         transporter
           .sendMail({
             from: '"Sani Letom 👻" <info@saniletom.ru>',
@@ -33,6 +34,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             }</i></strong>, официально подтверждаю, что я не говно человек!<br><b><i>С Увлажнением!</i></b>`,
           })
           .then((result) => {
+            console.log('хз')
             res.statusCode = parseInt(result.response.substring(0, 3));
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Cache-Control', 'max-age=180000');
