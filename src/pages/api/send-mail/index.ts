@@ -17,7 +17,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         res.status(200).json({ok: false, message: 'To send a message, you need to use a POST request'})
         break
       case 'POST':
+        console.log('до пасрса')
         const body = JSON.parse(req.body)
+        console.log('после пасрса')
         transporter
           .sendMail({
             from: '"Sani Letom 👻" <info@saniletom.ru>',
@@ -34,7 +36,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             res.statusCode = parseInt(result.response.substring(0, 3));
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Cache-Control', 'max-age=180000');
-            res.status(200).json({
+            res.status(201).json({
               envelope: result.envelope,
               messageId: result.messageId,
               rejected: result.rejected,
