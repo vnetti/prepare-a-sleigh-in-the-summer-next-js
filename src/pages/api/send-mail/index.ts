@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import * as process from "process";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const transporter = nodemailer.createTransport({
@@ -19,10 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           .json({ ok: false, message: 'To send a message, you need to use a POST request' });
         break;
       case 'POST':
-        console.log('до пасрса');
         const body = JSON.parse(req.body);
-        console.log('после пасрса');
         console.log(body);
+        console.log(process.env.MAIL_USER)
+        console.log(process.env.MAIL_PASSWORD)
         try {
           const result = await transporter.sendMail({
             from: '"Sani Letom 👻" <info@saniletom.ru>',
