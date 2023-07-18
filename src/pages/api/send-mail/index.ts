@@ -36,7 +36,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                   console.error(error);
                   reject(error);
                 } else {
-                  res.statusCode = parseInt(result.response.substring(0, 3));
                   res.setHeader('Content-Type', 'application/json');
                   res.setHeader('Cache-Control', 'max-age=180000');
                   res.status(201).json({
