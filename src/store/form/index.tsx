@@ -37,12 +37,11 @@ class Form {
     } else {
       this.setIsLoading(true);
 
-      const response = await fetch('api/nodemailer', {
+      const response = await fetch('api/send-mail', {
         method: 'POST',
         body: JSON.stringify({
           firstName: this.firstName,
           lastName: this.lastName,
-          to: ['mukshin.an@gmail.com', 'spbkvv@bk.ru'],
         }),
       });
       const json = await response.json();

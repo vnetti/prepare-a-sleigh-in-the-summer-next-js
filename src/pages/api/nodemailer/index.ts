@@ -9,10 +9,12 @@ type bodyType = {
 };
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-  const body: bodyType = JSON.parse(req.body);
+  const body: bodyType = req.body
 
   try {
+    console.log('строка 15')
     if (req.method === 'POST') {
+      console.log('строка 17')
       const transporter = nodemailer.createTransport({
         host: 'smtp.beget.com',
         port: 25,
@@ -21,8 +23,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           user: process.env.MAIL_USER,
           pass: process.env.MAIL_PASSWORD,
         },
-        to: body.to,
       });
+      console.log('строка 18')
 
       const result = await transporter.sendMail({
         from: '"Sani Letom 👻" <info@saniletom.ru>',
@@ -31,6 +33,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         text: `Я, ${body.lastName} ${body.firstName}, официально подтверждаю, что я не говно человек!`,
         html: `Я, <strong><i>${body.lastName} ${body.firstName}</i></strong>, официально подтверждаю, что я не говно человек!<br><b><i>С Увлажнением!</i></b>`,
       });
+      console.log('строка 37')
       res.statusCode = parseInt(result.response.substring(0, 3));
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'max-age=180000');
@@ -44,6 +47,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           ok: true,
         }),
       );
+      console.log('строка 51')
     } else {
       res.status(405).send("");
       res.setHeader('Content-Type', 'application/json');
@@ -57,9 +61,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         }),
       );
     }
+    console.log('строка 65')
   } catch (error) {
     console.error(error);
     res.json({ ...(error as object), ok: false });
     res.status(405).end();
   }
+  console.log('строка 71')
 }
