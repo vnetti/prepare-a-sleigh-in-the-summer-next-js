@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
-import * as process from "process";
+import * as process from 'process';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const transporter = nodemailer.createTransport({
@@ -21,26 +21,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         break;
       case 'POST':
         const body = JSON.parse(req.body);
-        console.log(body);
-        console.log(process.env.MAIL_USER)
-        console.log(process.env.MAIL_PASSWORD)
         try {
-          const result = await transporter.sendMail({
-            from: '"Sani Letom 👻" <info@saniletom.ru>',
-            to: ['mukshin.an@gmail.com'],
-            subject: 'Заявка деду морозу ✔',
-            text: `Я, ${body.lastName} ${body.firstName}, официально подтверждаю, что я не говно человек!`,
-            html: `Я, <strong><i>${body.lastName} ${body.firstName}</i></strong>, официально подтверждаю, что я не говно человек!<br><b><i>С Увлажнением!</i></b>`,
-          });
-          console.log('хз');
-          res.statusCode = parseInt(result.response.substring(0, 3));
-          res.setHeader('Content-Type', 'application/json');
-          res.setHeader('Cache-Control', 'max-age=180000');
-          res.status(201).json({
-            envelope: result.envelope,
-            messageId: result.messageId,
-            rejected: result.rejected,
-            ok: true,
+          await new Promise((resolve, reject) => {
+            transporter.sendMail(
+              {
+                from: '"Sani Letom 👻" <info@saniletom.ru>',
+                to: ['mukshin.an@gmail.com'],
+                subject: 'Заявка деду морозу ✔',
+                text: `Я, ${body.lastName} ${body.firstName}, официально подтверждаю, что я не говно человек!`,
+                html: `Я, <strong><i>${body.lastName} ${body.firstName}</i></strong>, официально подтверждаю, что я не говно человек!<br><b><i>С Увлажнением!</i></b>`,
+              },
+              (error, info) => {
+                if (error) {
+                  console.error(error);
+                  reject(error);
+                } else {
+                  res.statusCode = parseInt(result.response.substring(0, 3));
+                  res.setHeader('Content-Type', 'application/json');
+                  res.setHeader('Cache-Control', 'max-age=180000');
+                  res.status(201).json({
+                    envelope: info.envelope,
+                    messageId: info.messageId,
+                    rejected: info.rejected,
+                    ok: true,
+                  });
+                  resolve(info);
+                }
+              },
+            );
           });
         } catch (e) {
           console.error(e);
