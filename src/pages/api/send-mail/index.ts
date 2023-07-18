@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           .json({ ok: false, message: 'To send a message, you need to use a POST request' });
         break;
       case 'POST':
-        const body = JSON.parse(req.body);
+        const body = req.body
         try {
           await new Promise((resolve, reject) => {
             transporter.sendMail(
