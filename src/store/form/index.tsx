@@ -43,6 +43,7 @@ class Form {
           firstName: this.firstName,
           lastName: this.lastName,
         }),
+        headers: {'Content-Type': 'application/json'}
       });
       const json = await response.json();
       this.setIsLoading(false);
