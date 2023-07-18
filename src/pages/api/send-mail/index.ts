@@ -1,65 +1,17 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
-import * as process from 'process';
+import { NextApiRequest, NextApiResponse  } from 'next';
+import { sendEmail } from '@/utils/send-email';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.beget.com',
-    port: 25,
-    secure: false,
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASSWORD,
-    },
-  });
-  try {
-    switch (req.method) {
-      case 'GET':
-        res
-          .status(200)
-          .json({ ok: false, message: 'To send a message, you need to use a POST request' });
-        break;
-      case 'POST':
-        const body = req.body
-        try {
-          await new Promise((resolve, reject) => {
-            transporter.sendMail(
-              {
-                from: '"Sani Letom 👻" <info@saniletom.ru>',
-                to: ['mukshin.an@gmail.com'],
-                subject: 'Заявка деду морозу ✔',
-                text: `Я, ${body.lastName} ${body.firstName}, официально подтверждаю, что я не говно человек!`,
-                html: `Я, <strong><i>${body.lastName} ${body.firstName}</i></strong>, официально подтверждаю, что я не говно человек!<br><b><i>С Увлажнением!</i></b>`,
-              },
-              (error, info) => {
-                if (error) {
-                  console.error(error);
-                  reject(error);
-                } else {
-                  res.setHeader('Content-Type', 'application/json');
-                  res.setHeader('Cache-Control', 'max-age=180000');
-                  res.status(201).json({
-                    envelope: info.envelope,
-                    messageId: info.messageId,
-                    rejected: info.rejected,
-                    ok: true,
-                  });
-                  resolve(info);
-                }
-              },
-            );
-          });
-        } catch (e) {
-          console.error(e);
-          res.status(500).json({ e, ok: false });
-          res.send('Internal Server Error');
-        }
-        break;
-      default:
-        res.status(200).send('To send a message, you need to use a POST request');
-    }
-  } catch (error) {
-    console.error(error);
-    res.json({ ok: false, message: 'Something went wrong' });
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  if(req.method === 'POST') {
+    const { firstName, lastName } = req.body;
+    const result = await sendEmail({ firstName, lastName });
+    return res.status(200).json({ok: true, result});
   }
+  return res.status(404).json({
+    error: {
+      code: 'not_found',
+      ok: false,
+      message: "The requested endpoint was not found or doesn't support this method."
+    }
+  });
 }

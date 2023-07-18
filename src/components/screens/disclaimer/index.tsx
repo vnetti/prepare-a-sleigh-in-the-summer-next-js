@@ -5,15 +5,8 @@ import screen from '@store/screen';
 import LogoPrimary from '@components/ui/logo-primary';
 import Grid from '@screens/disclaimer/grid';
 import Navigation from '@components/ui/navigation';
-import {useEffect} from "react";
 
 const Disclaimer = () => {
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos/')
-      .then(response => response.json())
-      .then(json => console.log(json))
-  }, [])
 
   return (
     <section className={'container'}>

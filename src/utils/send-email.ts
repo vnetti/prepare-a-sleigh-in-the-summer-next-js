@@ -10,12 +10,11 @@ export const sendEmail = async ({
   firstName: string;
   lastName: string;
 }) => {
-  console.log(SENDGRID_API_KEY)
   sgMail.setApiKey(SENDGRID_API_KEY as string);
   try {
 
     const message = {
-      to: ['mukshin.an@gmail.com'],
+      to: ['mukshin.an@gmail.com', 'spbkvv@bk.ru'],
       from: {
         email: '<info@saniletom.ru>',
         name: 'Sani Letom 👻',
